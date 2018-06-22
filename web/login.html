@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+<meta charset="utf-8" />
+<title>Login</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+
+    <!-- Bootstrap core CSS     -->
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+
+</head>
+    
+<body>
+    <div class="login-page">
+  <div class="form">
+      <a href="#"><img src="img/logo.png"></a>
+      <h1><span>Sign in</span> to continue to
+brayana</h1>
+    <form class="register-form" onsubmit="return loginSubmit();">
+    <div class="login-form" >
+      <input type="text" placeholder="username" id="username" required/>
+      <input type="password" placeholder="password" id="password" required/>
+      <button type="submit" >login</button>
+    </div>
+    </form>
+  </div>
+</div>
+    
+<script type="text/javascript">
+    $(document).ready(function(){
+        islogged();
+    });
+
+</script>   
+<script type="text/javascript" src="js/login.js"></script>
+
+</body>
+</html>
