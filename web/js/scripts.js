@@ -1,5 +1,5 @@
 // global.js
-var Env = "local";
+var Env = "remote";
 
 if(Env == "local"){
   var host_url = "http://localhost/brayana/web/";
@@ -25,7 +25,7 @@ function islogged(){
     }else if(userType == 2){
         window.location.href=host_url+'land/landView.html';  
     }else if(userType == 3){
-        window.location.href=host_url+'mytransaction/transactionLandview.html';  
+        window.location.href=host_url+'myTransaction/transactionLandView.html';  
     }
     
   }else if(!isLogged && currentPath != "login.html"){
