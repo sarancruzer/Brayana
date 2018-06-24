@@ -146,7 +146,7 @@ function fillEditLandDetail(data){
   $("#address").val(data.address);
   
  // $('select[name="site_name"] option[value="'+data.site_id+'"]').attr('selected', 'selected');
-//   $("#site_name").val(data.site_id);
+   $("#site_name").val(data.site_id);
   $("#survey_no").val(data.survey_no);
   $("#area").val(data.area);
   $("#city").val(data.city);

@@ -103,16 +103,18 @@ if(currentPath == "customer/customerAgar/customerAgarAddEdit.html"){
 }else{
     var params = getParams(window.location.href);
     if(typeof params.id != "undefined" && params.id !="" && params.id != null){
-        getAgars();
-         getCustomerAgarsByID(params.id);
         
+        loadAfter(params.id);
     }else{
       //  window.location.href=host_url+'customer/customerAgar/customerAgarView.html';
     }
 }
 
 }
-
+function loadAfter(id){
+  getAgars(id);
+        getCustomerAgarsByID(id);
+}
 function loadDataTable(){
 var table = $('#myTable').DataTable({
    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
@@ -134,8 +136,9 @@ for(var i=0;i<count;i++){
 }
 
 
-function getAgars(){
+function getAgars(id){
  var auth = getLocal("auth");
+
  $.ajax({
       type: "GET",
       url: api_url+"/api/agars",
@@ -150,11 +153,14 @@ function getAgars(){
                     var list = data.data;     
                     
                     $.each(list, function (i, item) {
-                        $('#agar_id').append($('<option>', { 
+                        $('#agar_id,#no_tree').append($('<option>', { 
                             value: item.site_id,
                             text : item.site_name 
                         }));
                     });
+                }
+                if(id != ""){
+                    getCustomerAgarsByID(id);
                 }
            }
         }
@@ -174,11 +180,11 @@ function getCustomerAgarsByID(id){
            if(status == "OK"){
                 if(data.count > 0){
 
-                    $("#customerAgarForm").autofill( data.data[0] );
-                    $('#user_mobile').val(data.data[0].mobile);
+                    //$("#customerAgarForm").autofill( data.data[0] );
+                    //$('#user_mobile').val(data.data[0].mobile);
                     
-                    $('#agar_id').val(data.data[0].agar_id);
-                    //fillEditLandDetail(data.data[0]);
+                    //$('#agar_id').val(data.data[0].agar_id);
+                    fillEditLandDetail(data.data[0]);
                 }else{
                    // alert("No data Found");
                     window.location.href=host_url+'customer/customerAgar/customerAgarView.html';
@@ -189,21 +195,20 @@ function getCustomerAgarsByID(id){
     });
 }
 function fillEditLandDetail(data){
-
   $("#booking_no").val(data.booking_no);
   $("#name").val(data.name);
-  $("#mobile").val(data.mobile);
-  $("#email").val(data.email_id);
+  $("#user_mobile").val(data.mobile);
+  $("#email_id").val(data.email_id);
   $("#address").val(data.address);
   
  // $('select[name="site_name"] option[value="'+data.site_id+'"]').attr('selected', 'selected');
-//   $("#site_name").val(data.site_id);
+  $("#agar_id").val(data.agar_id);
   $("#survey_no").val(data.survey_no);
   $("#area").val(data.area);
   $("#city").val(data.city);
-  $("#installment_month").val(data.inst_month);
-  $("#installment_amount").val(data.inst_amount);
-  $("#total_amount").val(data.tot_amount);
+  $("#inst_month").val(data.inst_month);
+  $("#inst_amount").val(data.inst_amount);
+  $("#tot_amount").val(data.tot_amount);
 
   $("#id").val(data.id);
   $("#login_id").val(data.login_id);

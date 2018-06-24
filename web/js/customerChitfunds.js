@@ -155,8 +155,8 @@ function getCustomerChitsByID(id){
            if(status == "OK"){
                 if(data.count > 0){
 
-                    $("#customerChitFundForm").autofill( data.data[0] );
-                    //fillEditLandDetail(data.data[0]);
+                    //$("#customerChitFundForm").autofill( data.data[0] );
+                    fillEditLandDetail(data.data[0]);
                 }else{
                    // alert("No data Found");
                     window.location.href=host_url+'customer/customerChitFunds/customerChitFundView.html';
@@ -175,7 +175,7 @@ function fillEditLandDetail(data){
   $("#address").val(data.address);
   
  // $('select[name="site_name"] option[value="'+data.site_id+'"]').attr('selected', 'selected');
-//   $("#site_name").val(data.site_id);
+   $("#chit_id").val(data.chit_id);
   $("#survey_no").val(data.survey_no);
   $("#area").val(data.area);
   $("#city").val(data.city);
