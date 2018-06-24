@@ -17,14 +17,25 @@ function islogged(){
   var url      = window.location.href;     // Returns full URL
   var currentPath = pathname.replace(replace_ct,"");
   var auth = getLocal("auth");
+  var userType = getLocal("u");
   var isLogged = (typeof auth != "undefined" && auth != "" && auth != null);
   if(isLogged && (currentPath == "login.html" || currentPath == "index.html")){
-    window.location.href=host_url+'land/landView.html';
+    if(userType == 1){
+        window.location.href=host_url+'land/landView.html';  
+    }else if(userType == 2){
+        window.location.href=host_url+'land/landView.html';  
+    }else if(userType == 3){
+        window.location.href=host_url+'mytransaction/transactionLandview.html';  
+    }
+    
   }else if(!isLogged && currentPath != "login.html"){
     window.location.href=host_url+'login.html';
   }
 }
 
+function customerAllowedPages(){
+  s
+}
 function getCurrentPath(){
   var pathname = window.location.pathname; // Returns path only
   var url      = window.location.href;     // Returns full URL
@@ -106,7 +117,9 @@ var getParams = function (url) {
 function cl(msg){
   console.log(msg);
 }
-
+function goBack() {
+    window.history.back();
+}
 (function ($) {
   $.fn.serializeFormJSON = function () {
 
