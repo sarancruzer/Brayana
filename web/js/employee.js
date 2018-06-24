@@ -3,9 +3,9 @@
 
 // function saveLandDetail(){
 
-//     	var siteName = $("#siteName").val();
+//      var siteName = $("#siteName").val();
 
-//     	var surveyNo = $("#surveyNo").val();
+//      var surveyNo = $("#surveyNo").val();
 
 //         var area = $("#area").val();
 
@@ -19,13 +19,13 @@
 
 //         if(siteName == ""){
 
-// 			alert("Please enter site Name");
+//      alert("Please enter site Name");
 
-//     	}else if(surveyNo == ""){
+//      }else if(surveyNo == ""){
 
-// 			alert("Please enter survey Number");
+//      alert("Please enter survey Number");
 
-//     	} else if(area == ""){
+//      } else if(area == ""){
 
 //             alert("Please enter area Deatails");
 
@@ -72,9 +72,54 @@ $(document).ready(function(){
         deleteEmployee(empId);
     });
 
+   AddFormValidation();
+
+
     init();
 
 });
+
+function AddFormValidation(){
+
+
+    $("#EmployerAddForm").validate({
+        rules: {
+         //   employeeId: "required",
+            name: "required",
+            gender: "required",
+            dob: "required",
+            mobile: "required",
+            email: "required",
+            address: "required",
+            city: "required",
+            state: "required",
+            country: "required",
+            education: "required",
+            maritalStatus: "required",
+            idProof: "required",
+            city: "required",
+            state: "required"
+        },
+        messages: {
+     //       employeeId: "Please Enter Employee ID Field",
+            name: "Please Enter Name Field",
+            gender: "Please Enter Gender Field",
+            dob: "Please Enter DOB Field",
+            mobile: "Please Enter Mobile Field",
+            email: "Please Enter Email Field",
+            address: "Please Enter Address Field",
+            city: "Please Enter City Field",
+            state: "Please Enter State Field",
+            country: "Please Enter Country Field",
+            education: "Please Enter Education Field",
+            maritalStatus: "Please Enter Marital status Field",
+            idProof: "Please Enter ID Proof Field",
+            city: "Please Enter City Field",
+            state: "Please Enter State Field"
+        }
+    });
+    
+    }
 
 function openEmployeeAddPage(){
 window.location='./employeeAddEdit.html';
@@ -129,35 +174,7 @@ function getEmployeeEdit(){
            }
        });
    }
-function saveEmployeeDetailss(){
- // alert("come");
-    var auth = getLocal("auth");
 
-    //  if($("#customerChitFundForm").valid()){
-   
-      var data = $('#EmployerAddForm').serializeFormJSON();
-      console.log(data);
-   
-    $.ajax({
-        type: "POST",
-        url: api_url+"/api/addEmployee/chit",
-        headers: { "auth":auth},
-        dataType:"JSON",
-        data:data,
-        cache: false,
-        success: function(msg, textStatus, xhr) {
-            if(msg.STATUS == "OK"){
-                window.location.href=host_url+'customer/customerChitFunds/customerChitFundView.html';
-            }else{
-                alert(msg.RESPONSE);
-            }
-            
-            }
-        });
-  //  }
-
-return false;  
-}
 
 function loadDataTable(){
 var table = $('#myTable').DataTable({
@@ -219,7 +236,6 @@ function getEmployeeByID(id){
                     $('#dob').val(empData.dob);
                     $('#mobile').val(empData.mobile);
                     $('#email').val(empData.email); 
-
                     $('#address').val(empData.address);
                     $('#city').val(empData.city);
                     $('#state').val(empData.state); 
@@ -251,6 +267,8 @@ function fillEditEmployeeDetail(data){
   
 }
 function saveEmployeeDetail(){
+      if($("#EmployerAddForm").valid()){
+
     var employeeId = $("#employeeId").val();
     var name = $("#name").val();
   var gender = $("#gender").val();
@@ -291,19 +309,22 @@ function saveEmployeeDetail(){
       cache: false,
       success: function(msg, textStatus, xhr) {
         if(msg.STATUS == "OK"){
-            window.location.href=host_url+'employee/employeeView.html';
+           // window.location.href=host_url+'employee/employeeView.html';
         }else{
             alert(msg.RESPONSE);
         }
            
         }
     });
+}
 
 return false;  
 }
 
 
 function editEmployeeDetail(){
+   if($("#EmployerAddForm").valid()){
+
     var employeeId = $("#employeeId").val();
     var name = $("#name").val();
   var gender = $("#gender").val();
@@ -335,6 +356,7 @@ function editEmployeeDetail(){
               }
   var auth = getLocal("auth");
  $.ajax({
+     
       type: "POST",
       url: api_url+"/api/editEmployee/"+employeeId,
       headers: { "auth":auth},
@@ -349,8 +371,9 @@ function editEmployeeDetail(){
         }
            
         }
+    
     });
-
+    }
 return false;  
 }
 
