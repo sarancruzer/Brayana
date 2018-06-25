@@ -3,9 +3,9 @@
 
 // function saveLandDetail(){
 
-//     	var siteName = $("#siteName").val();
+//      var siteName = $("#siteName").val();
 
-//     	var surveyNo = $("#surveyNo").val();
+//      var surveyNo = $("#surveyNo").val();
 
 //         var area = $("#area").val();
 
@@ -19,13 +19,13 @@
 
 //         if(siteName == ""){
 
-// 			alert("Please enter site Name");
+//      alert("Please enter site Name");
 
-//     	}else if(surveyNo == ""){
+//      }else if(surveyNo == ""){
 
-// 			alert("Please enter survey Number");
+//      alert("Please enter survey Number");
 
-//     	} else if(area == ""){
+//      } else if(area == ""){
 
 //             alert("Please enter area Deatails");
 
@@ -131,17 +131,17 @@ window.location='./employeeAddEdit.html';
 
 function init(){
 var currentPath = getCurrentPath();
-if(currentPath == "/brayana-cloneemployee/employeeView.html"){
+if(currentPath == "employee/employeeView.html"){
     getEmployees();  
-}else if(currentPath == "/brayana-cloneemployee/employeeView.html"){
+}else if(currentPath == "employee/employeeAddEdit.html"){
 
 
-}else if(currentPath == "/brayana-cloneemployee/employeeEdit.html"){
+}else if(currentPath == "employee/employeeEdit.html"){
     var params = getParams(window.location.href);
     if(typeof params.id != "undefined" && params.id !="" && params.id != null){
         getEmployeeByID(params.id);  
     }else{
-        window.location.href=host_url+'/brayana-cloneemployee/employeeView.html';
+        window.location.href=host_url+'employee/employeeView.html';
     }
 }
 
@@ -178,26 +178,14 @@ function getEmployeeEdit(){
 
 function loadDataTable(){
 var table = $('#myTable').DataTable({
-    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
- });
+   "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+});
+ 
 // #myInput is a <input type="text"> element
 $('#myInput').on( 'keyup', function () {
     table.search( this.value ).draw();
 });
 }
-
-
-
-function back(){
-
-    window.location.href=host_url+'employee/employeeView.html';
-
-   
-    }
-    
-
-
-
 
 function buildTable(list,count){
 

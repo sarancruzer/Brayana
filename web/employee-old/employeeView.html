@@ -83,7 +83,7 @@
 
             <div class="sidebar-wrapper">
                 <div class="logo">
-                    <a href="http://www.creative-tim.com" class="simple-text">
+                    <a href="#" class="simple-text">
                         BRAYANA
                     </a>
                 </div>
@@ -160,7 +160,7 @@
                         <ul class="nav navbar-nav navbar-right">
 
                            <li>
-                            <a href="../index.html">
+                            <a href="javascript:;" onclick="logout();">
                                 <p>Log out</p>
                             </a>
                         </li>
@@ -175,12 +175,21 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <ol class="breadcrumb">
-                                   
-                                    <li class="active">Employee</li>   
-                            </ol>
-                            <button type="submit" class="btn btn-primary btn-fill marginBottom10"  onclick="openEmployeeAddPage()">Add</button>
-                            <div class="card">
+                            <div class="card col-md-11">
+                                <div class="content table-responsive table-full-width">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                        <h4 class="title">Employee</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="pull-right">
+
+                           
+                             <button type="submit" class="btn btn-primary btn-fill marginBottom10"  onclick="openEmployeeAddPage()">Add</button>
+                                    </div>
+                                  </div>
+                                </div>
+                            
                                 <div class="header">
                                     <div class="input-group">
                                         <input type="text" class="form-control" />
@@ -193,11 +202,10 @@
                                     <table class="table table-hover table-striped" id="myTable">
                                         <thead>
                                             <th>S.NO</th>
-                                            <td>Name</td>
+                                           <td>Name</td>
                                             <td>Mobile NO</td>
                                             <td>Email ID</td>
                                             <td>City</td>
-                                            <td></td>
                                         </thead>
                                         <tbody>
                                            
@@ -207,6 +215,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
