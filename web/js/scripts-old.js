@@ -2,14 +2,15 @@
 var Env = "remote";
 
 if(Env == "local"){
-  var host_url = "http://localhost/brayana/web/";
-  var api_url = "http://localhost/brayana";
+  var host_url = "http://localhost/brayana-new/web/";
+  var api_url = "http://localhost/brayana-new";
   //var api_url = "http://brayana.tweenix.com";
-  var replace_ct = "/brayana/web/";
+  var replace_ct = "/brayana-new/web/";
 }else{
-  var host_url = "http://brayana.tweenix.com/web/";
-  var api_url = "http://brayana.tweenix.com";
-  var replace_ct = "/web/";
+    var host_url = "http://localhost/brayana/web/";
+    //var api_url = "http://localhost/brayana-new";
+    var api_url = "http://brayana.tweenix.com";
+    var replace_ct = "/brayana-new/web/";
 }
 
 function islogged(){
@@ -23,7 +24,8 @@ function islogged(){
     if(userType == 1){
         window.location.href=host_url+'land/landView.html';  
     }else if(userType == 2){
-        window.location.href=host_url+'land/landView.html';  
+        window.location.href=host_url+'customer/customerLand/customerLandView.html';  
+
     }else if(userType == 3){
         window.location.href=host_url+'myTransaction/transactionLandView.html';  
     }
@@ -32,9 +34,9 @@ function islogged(){
     window.location.href=host_url+'login.html';
   }
 }
-
-function customerAllowedPages(){
-  s
+hideMasters();
+function hideMasters(){
+    console.log($( "ul li:nth-child(2)" ));
 }
 function getCurrentPath(){
   var pathname = window.location.pathname; // Returns path only
