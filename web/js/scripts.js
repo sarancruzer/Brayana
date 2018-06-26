@@ -2,14 +2,14 @@
 var Env = "remote";
 
 if(Env == "local"){
-  var host_url = "http://localhost/brayana-clone/brayana-new/web/";
-  var api_url = "http://localhost/brayana-clone/brayana-new";
+  var host_url = "http://localhost/brayana-new/web/";
+  var api_url = "http://localhost/brayana-new";
   //var api_url = "http://brayana.tweenix.com";
   var replace_ct = "/brayana-new/web/";
 }else{
-    var host_url = "http://localhost/brayana-clone/brayana-new/web/";
-    var api_url = "http://localhost/brayana-clone/brayana-new";
-    //var api_url = "http://brayana.tweenix.com";
+    var host_url = "http://localhost/brayana/web/";
+    //var api_url = "http://localhost/brayana-new";
+    var api_url = "http://brayana.tweenix.com";
     var replace_ct = "/brayana-new/web/";
 }
 

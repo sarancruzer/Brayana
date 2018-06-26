@@ -131,17 +131,18 @@ window.location='./employeeAddEdit.html';
 
 function init(){
 var currentPath = getCurrentPath();
-if(currentPath == "/brayana-cloneemployee/employeeView.html"){
+alert(currentPath);
+if(currentPath == "/employee/employeeView.html"){
     getEmployees();  
-}else if(currentPath == "/brayana-cloneemployee/employeeView.html"){
+}else if(currentPath == "/employee/employeeView.html"){
 
 
-}else if(currentPath == "/brayana-cloneemployee/employeeEdit.html"){
+}else if(currentPath == "/employee/employeeEdit.html"){
     var params = getParams(window.location.href);
     if(typeof params.id != "undefined" && params.id !="" && params.id != null){
         getEmployeeByID(params.id);  
     }else{
-        window.location.href=host_url+'/brayana-cloneemployee/employeeView.html';
+        window.location.href=host_url+'/employee/employeeView.html';
     }
 }
 
@@ -190,7 +191,7 @@ $('#myInput').on( 'keyup', function () {
 
 function back(){
 
-    window.location.href=host_url+'employee/employeeView.html';
+                        window.location.href=host_url+'employee/employeeView.html';
 
    
     }
